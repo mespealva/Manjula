@@ -1,0 +1,32 @@
+<%= form_with(model: feeding, local: true) do |form| %>
+  <% if feeding.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(feeding.errors.count, "error") %> prohibited this feeding from being saved:</h2>
+
+      <ul>
+      <% feeding.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :cant %>
+    <%= form.number_field :cant %>
+  </div>
+
+  <div class="field">
+    <%= form.label :time %>
+    <%= form.number_field :time %>
+  </div>
+
+  <div class="field">
+    <%= form.label :baby %>
+    <%= form.collection_select :baby_id, @babies, :id, :nombre%>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

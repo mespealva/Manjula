@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cant: 1
+  time: 1
+  baby: 
+
+two:
+  cant: 1
+  time: 1
+  baby: 

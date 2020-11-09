@@ -1,0 +1,37 @@
+<h1>Babies#show</h1>
+
+<strong>Cuantas veces tomo leche hoy: </strong>
+
+<%@baby.feedings.where("created_at LIKE ?", "%#{Time.now.strftime('%Y-%m-%d')}%").each do |v|%>
+
+  <%@hoy += 1%>
+
+<%end%>
+
+<%=@hoy%>
+
+<br>
+
+<strong>Ultima vez que tomo leche: </strong>
+<span><%=@baby.feedings.all.last.created_at%></span>
+
+
+<br>
+
+<strong>Tiempo tomado hoy: </strong>
+<%@baby.feedings.where("created_at LIKE ?", "%#{Time.now.strftime('%Y-%m-%d')}%").each do |v|%>
+  <%@sum += v.tiempo%>
+<%end%>
+<span><%=@sum%> minutos</span>
+
+<br>
+
+<strong></strong>
+
+<%@baby.feedings.where("created_at LIKE ?", "%#{Time.now.strftime('%Y-%m-%d')}%").each do |v|%>
+  <%@cant += v.cantidad%>
+<%end%>
+<strong>Cuanto ha tomado hoy:</strong>
+<span><%=@cant%> ml</span>
+<br>
+<%=link_to :back, babies_index_path%>
